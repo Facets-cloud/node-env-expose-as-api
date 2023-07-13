@@ -1,6 +1,6 @@
 # Environment Variables Exposer
 
-This is a simple Node.js application, wrapped in a Docker container, that exposes the environment variables of the running container as a JSON object via an HTTP API.
+This is a Node.js application, wrapped in a Docker container, that exposes the environment variables of the running container via an HTTP API. Specifically, it lists only the environment variables that start with a specified prefix. This prefix is defined by the `PREFIX` environment variable. If `PREFIX` is not set, the application will return an empty JSON object.
 
 ## Getting Started
 
@@ -24,12 +24,12 @@ These instructions will get you a copy of the project up and running on your loc
     docker build -t env-api .
     ```
 
-3. Run the Docker container, passing in environment variables
+3. Run the Docker container, passing in the `PREFIX` environment variable and any other environment variables that start with the prefix
     ```bash
-    docker run -p 3000:3000 -e MY_VARIABLE=value env-api
+    docker run -p 3000:3000 -e PREFIX=MY_PREFIX -e MY_PREFIX_VARIABLE=value env-api
     ```
 
-This will start the application on port 3000 and you can see the environment variables by visiting `http://localhost:3000`.
+This will start the application on port 3000. To see the filtered environment variables, visit `http://localhost:3000/get-configurations`.
 
 ## Built With
 
@@ -40,4 +40,3 @@ This will start the application on port 3000 and you can see the environment var
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
