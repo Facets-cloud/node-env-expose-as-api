@@ -1,0 +1,13 @@
+{
+    "name": "env-api",
+    "version": "1.0.0",
+    "description": "A Node.js app for exposing environment variables via a HTTP API",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
+  
